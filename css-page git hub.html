@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS3 - Josué Enrique</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #264de4;
+      --blue-light: #4f8eff;
+      --dark: #0a0e1a;
+      --card: #111623;
+      --border: #1e2540;
+      --text: #e8eaf6;
+      --muted: #7a82a8;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Space Mono', monospace;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(38,77,228,0.15), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero {
+      position: relative;
+      z-index: 1;
+      padding: 80px 40px 60px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo-big {
+      font-size: clamp(80px, 15vw, 160px);
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+    /* Live CSS demo box */
+    .live-demo {
+      display: inline-block;
+      margin-top: 20px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
+      border-radius: 12px;
+      animation: spin 4s linear infinite, colorshift 6s ease-in-out infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes colorshift {
+      0%, 100% { border-radius: 12px; }
+      50% { border-radius: 50%; }
+    }
+    .version-tag {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 4px 16px;
+      border: 1px solid var(--blue-light);
+      color: var(--blue-light);
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(24px, 5vw, 48px);
+      margin-top: 20px;
+      font-weight: 800;
+    }
+    .hero p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 500px;
+      margin-inline: auto;
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .concepts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 60px;
+    }
+    .concept-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 24px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .concept-card:hover {
+      border-color: var(--blue-light);
+      transform: translateY(-2px);
+    }
+    .concept-card .icon { font-size: 28px; margin-bottom: 12px; }
+    .concept-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .concept-card p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+    .code-block {
+      background: #070b14;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--blue-light);
+      padding: 24px;
+      margin-bottom: 40px;
+      overflow-x: auto;
+    }
+    .code-block pre { font-size: 13px; line-height: 1.8; color: #ccc; }
+    .selector { color: var(--blue-light); }
+    .prop { color: #7ec8e3; }
+    .val { color: #b5e853; }
+    .comment { color: #3a4060; }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 40px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 1px;
+      transition: color 0.2s;
+    }
+    .back-btn:hover { color: var(--blue-light); }
+    .fun-fact {
+      background: linear-gradient(135deg, rgba(38,77,228,0.1), rgba(38,77,228,0.03));
+      border: 1px solid rgba(79,142,255,0.3);
+      padding: 24px;
+      margin-bottom: 60px;
+    }
+    .fun-fact h3 { color: var(--blue-light); font-size: 13px; letter-spacing: 2px; margin-bottom: 8px; }
+    .fun-fact p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="logo-big">CSS</div>
+    <div class="live-demo"></div>
+    <div class="version-tag">versión 3</div>
+    <h1>Cascading Style Sheets</h1>
+    <p>El lenguaje del diseño web. Con CSS transformas texto plano en interfaces visuales impresionantes.</p>
+  </div>
+
+  <div class="container">
+    <a href="index.html" class="back-btn">← Volver al perfil</a>
+
+    <div class="section-label">Conceptos clave</div>
+    <div class="concepts-grid">
+      <div class="concept-card">
+        <div class="icon">🎨</div>
+        <h3>Selectores</h3>
+        <p>Apuntan a elementos HTML por etiqueta, clase (.clase), ID (#id) o relación entre elementos.</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">📦</div>
+        <h3>Box Model</h3>
+        <p>Todo elemento es una caja: content → padding → border → margin. Entenderlo es esencial para el layout.</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">🔲</div>
+        <h3>Flexbox</h3>
+        <p>Sistema de layout unidimensional. Alinea y distribuye elementos en filas o columnas con facilidad.</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">🔳</div>
+        <h3>Grid</h3>
+        <p>Sistema de layout bidimensional. Crea layouts complejos con filas y columnas simultáneamente.</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">✨</div>
+        <h3>Animaciones</h3>
+        <p>Con @keyframes y transition das vida a tus interfaces sin necesidad de JavaScript.</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">📱</div>
+        <h3>Responsive</h3>
+        <p>Media queries (@media) adaptan el diseño a cualquier tamaño de pantalla: móvil, tablet, desktop.</p>
+      </div>
+    </div>
+
+    <div class="section-label">Ejemplo de código</div>
+    <div class="code-block">
+      <pre><span class="comment">/* Variables CSS y Flexbox */</span>
+<span class="selector">:root</span> {
+  <span class="prop">--color-primario</span>: <span class="val">#264de4</span>;
+  <span class="prop">--espaciado</span>: <span class="val">1rem</span>;
+}
+
+<span class="selector">.tarjeta</span> {
+  <span class="prop">display</span>: <span class="val">flex</span>;
+  <span class="prop">flex-direction</span>: <span class="val">column</span>;
+  <span class="prop">gap</span>: <span class="val">var(--espaciado)</span>;
+  <span class="prop">padding</span>: <span class="val">24px</span>;
+  <span class="prop">border-radius</span>: <span class="val">12px</span>;
+  <span class="prop">background</span>: <span class="val">linear-gradient(135deg, #1a1a2e, #16213e)</span>;
+  <span class="prop">transition</span>: <span class="val">transform 0.3s ease</span>;
+}
+
+<span class="selector">.tarjeta:hover</span> {
+  <span class="prop">transform</span>: <span class="val">translateY(-8px)</span>;
+}</pre>
+    </div>
+
+    <div class="fun-fact">
+      <h3>💡 ¿Sabías que?</h3>
+      <p>CSS fue propuesto por Håkon Wium Lie en 1994 porque en ese momento los diseñadores no tenían control visual sobre sus páginas. Hoy, con CSS Grid y Custom Properties, podemos crear interfaces que antes solo eran posibles con aplicaciones nativas de escritorio.</p>
+    </div>
+  </div>
+</body>
+</html>

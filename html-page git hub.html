@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML5 - Josué Enrique</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #E34F26;
+      --orange-light: #ff7c50;
+      --dark: #0f0f0f;
+      --card: #1a1a1a;
+      --border: #2e2e2e;
+      --text: #e8e8e8;
+      --muted: #888;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Space Mono', monospace;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    /* Grid background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(227,79,38,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(227,79,38,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero {
+      position: relative;
+      z-index: 1;
+      padding: 80px 40px 60px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo-big {
+      font-size: clamp(80px, 15vw, 160px);
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--orange), var(--orange-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+      animation: pulse 3s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.2); }
+    }
+    .version-tag {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 4px 16px;
+      border: 1px solid var(--orange);
+      color: var(--orange);
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(24px, 5vw, 48px);
+      margin-top: 24px;
+      font-weight: 800;
+    }
+    .hero p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 500px;
+      margin-inline: auto;
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .concepts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 60px;
+    }
+    .concept-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 24px;
+      transition: border-color 0.2s, transform 0.2s;
+      cursor: default;
+    }
+    .concept-card:hover {
+      border-color: var(--orange);
+      transform: translateY(-2px);
+    }
+    .concept-card .icon { font-size: 28px; margin-bottom: 12px; }
+    .concept-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .concept-card p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+    .code-block {
+      background: #0a0a0a;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--orange);
+      padding: 24px;
+      margin-bottom: 40px;
+      overflow-x: auto;
+    }
+    .code-block pre {
+      font-size: 13px;
+      line-height: 1.8;
+      color: #ccc;
+    }
+    .tag { color: var(--orange); }
+    .attr { color: #7ec8e3; }
+    .val { color: #b5e853; }
+    .comment { color: #555; }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 40px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 1px;
+      transition: color 0.2s;
+    }
+    .back-btn:hover { color: var(--orange); }
+    .fun-fact {
+      background: linear-gradient(135deg, rgba(227,79,38,0.1), rgba(227,79,38,0.03));
+      border: 1px solid rgba(227,79,38,0.3);
+      padding: 24px;
+      margin-bottom: 60px;
+    }
+    .fun-fact h3 { color: var(--orange); font-size: 13px; letter-spacing: 2px; margin-bottom: 8px; }
+    .fun-fact p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="logo-big">HTML</div>
+    <div class="version-tag">versión 5</div>
+    <h1>HyperText Markup Language</h1>
+    <p>El lenguaje base de la web. Toda página que visitas está construida sobre HTML.</p>
+  </div>
+
+  <div class="container">
+    <a href="index.html" class="back-btn">← Volver al perfil</a>
+
+    <div class="section-label">Conceptos clave</div>
+    <div class="concepts-grid">
+      <div class="concept-card">
+        <div class="icon">🏗️</div>
+        <h3>Estructura</h3>
+        <p>HTML define la estructura y el significado del contenido mediante etiquetas anidadas en un árbol llamado DOM.</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">🏷️</div>
+        <h3>Etiquetas semánticas</h3>
+        <p>&lt;header&gt;, &lt;main&gt;, &lt;section&gt;, &lt;article&gt;, &lt;footer&gt; dan significado al contenido más allá del diseño.</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">📝</div>
+        <h3>Formularios</h3>
+        <p>Con &lt;form&gt;, &lt;input&gt;, &lt;select&gt; y &lt;button&gt; capturamos datos del usuario de forma nativa.</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">🔗</div>
+        <h3>Hipervínculos</h3>
+        <p>La etiqueta &lt;a href=""&gt; es la esencia de la web: conectar páginas y recursos entre sí.</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">🖼️</div>
+        <h3>Multimedia</h3>
+        <p>HTML5 trajo &lt;video&gt;, &lt;audio&gt; e &lt;canvas&gt;, permitiendo multimedia sin plugins externos.</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">♿</div>
+        <h3>Accesibilidad</h3>
+        <p>Atributos como alt, aria-label y roles hacen que el contenido sea accesible para todos.</p>
+      </div>
+    </div>
+
+    <div class="section-label">Ejemplo de código</div>
+    <div class="code-block">
+      <pre><span class="comment">&lt;!-- Estructura básica de una página HTML5 --&gt;</span>
+<span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html</span> <span class="attr">lang</span>=<span class="val">"es"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+  <span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="val">"UTF-8"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;title&gt;</span>Mi primera página<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+  <span class="tag">&lt;header&gt;</span>
+    <span class="tag">&lt;h1&gt;</span>¡Hola, mundo!<span class="tag">&lt;/h1&gt;</span>
+  <span class="tag">&lt;/header&gt;</span>
+  <span class="tag">&lt;main&gt;</span>
+    <span class="tag">&lt;p&gt;</span>Esta es mi primera página web.<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"https://developer.mozilla.org"</span><span class="tag">&gt;</span>
+      Aprender más →
+    <span class="tag">&lt;/a&gt;</span>
+  <span class="tag">&lt;/main&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></pre>
+    </div>
+
+    <div class="fun-fact">
+      <h3>💡 ¿Sabías que?</h3>
+      <p>HTML fue creado por Tim Berners-Lee en 1991. La primera versión solo tenía 18 etiquetas. Hoy HTML5 tiene más de 100, y cada una tiene un propósito semántico específico que ayuda tanto a los navegadores como a los motores de búsqueda a entender tu contenido.</p>
+    </div>
+  </div>
+</body>
+</html>

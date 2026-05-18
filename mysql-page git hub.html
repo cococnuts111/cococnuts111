@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MySQL - Josué Enrique</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --teal: #00758F;
+      --teal-light: #00b4d8;
+      --orange: #F29111;
+      --dark: #030f12;
+      --card: #071218;
+      --border: #0d2530;
+      --text: #d0eef5;
+      --muted: #5a8a96;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Space Mono', monospace;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 40% at 50% 0%, rgba(0,180,216,0.08), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero {
+      position: relative;
+      z-index: 1;
+      padding: 80px 40px 60px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo-big {
+      font-size: clamp(70px, 12vw, 130px);
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--teal-light), var(--orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+    /* Mini table demo */
+    .mini-table {
+      display: inline-block;
+      margin-top: 20px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .mini-table table { border-collapse: collapse; font-size: 12px; }
+    .mini-table th {
+      background: rgba(0,180,216,0.15);
+      color: var(--teal-light);
+      padding: 8px 16px;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: 1px;
+    }
+    .mini-table td {
+      padding: 6px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .mini-table tr:last-child td { border-bottom: none; }
+    .version-tag {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 4px 16px;
+      border: 1px solid var(--teal-light);
+      color: var(--teal-light);
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(22px, 5vw, 42px);
+      margin-top: 20px;
+      font-weight: 800;
+    }
+    .hero p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 500px;
+      margin-inline: auto;
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .concepts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 60px;
+    }
+    .concept-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 24px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .concept-card:hover { border-color: var(--teal-light); transform: translateY(-2px); }
+    .concept-card .icon { font-size: 28px; margin-bottom: 12px; }
+    .concept-card h3 { font-family: 'Syne', sans-serif; font-size: 16px; margin-bottom: 8px; color: #fff; }
+    .concept-card p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+    .code-block {
+      background: #020a0e;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--teal-light);
+      padding: 24px;
+      margin-bottom: 40px;
+      overflow-x: auto;
+    }
+    .code-block pre { font-size: 13px; line-height: 1.8; color: #ccc; }
+    .kw { color: var(--teal-light); font-weight: 700; }
+    .tbl { color: var(--orange); }
+    .str { color: #b5e853; }
+    .comment { color: #1a4050; }
+    .num { color: #ff9f7e; }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 40px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 1px;
+      transition: color 0.2s;
+    }
+    .back-btn:hover { color: var(--teal-light); }
+    .fun-fact {
+      background: linear-gradient(135deg, rgba(0,180,216,0.07), rgba(0,180,216,0.02));
+      border: 1px solid rgba(0,180,216,0.2);
+      padding: 24px;
+      margin-bottom: 60px;
+    }
+    .fun-fact h3 { color: var(--teal-light); font-size: 13px; letter-spacing: 2px; margin-bottom: 8px; }
+    .fun-fact p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="logo-big">MySQL</div>
+    <div class="mini-table">
+      <table>
+        <tr><th>id</th><th>nombre</th><th>país</th></tr>
+        <tr><td>1</td><td>Josué</td><td>El Salvador</td></tr>
+        <tr><td>2</td><td>María</td><td>Guatemala</td></tr>
+        <tr><td>3</td><td>Carlos</td><td>Honduras</td></tr>
+      </table>
+    </div>
+    <div class="version-tag">SQL Relacional</div>
+    <h1>MySQL Database</h1>
+    <p>El sistema de bases de datos relacionales más popular del mundo. Organiza, consulta y protege tu información.</p>
+  </div>
+
+  <div class="container">
+    <a href="index.html" class="back-btn">← Volver al perfil</a>
+
+    <div class="section-label">Conceptos clave</div>
+    <div class="concepts-grid">
+      <div class="concept-card">
+        <div class="icon">🗃️</div>
+        <h3>Tablas</h3>
+        <p>Los datos se organizan en tablas con filas y columnas, similar a una hoja de cálculo pero con estructura estricta.</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">🔑</div>
+        <h3>Primary Key</h3>
+        <p>Identificador único para cada fila. Generalmente un campo AUTO_INCREMENT llamado id.</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">🔗</div>
+        <h3>Foreign Key</h3>
+        <p>Relaciona tablas entre sí. Un pedido tiene un cliente_id que apunta a la tabla de clientes.</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">🔍</div>
+        <h3>SELECT y JOINs</h3>
+        <p>Consultas para obtener datos. Los JOINs combinan datos de varias tablas en una sola consulta.</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">📝</div>
+        <h3>CRUD</h3>
+        <p>Las 4 operaciones básicas: CREATE (INSERT), READ (SELECT), UPDATE, DELETE.</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">🛡️</div>
+        <h3>Transacciones</h3>
+        <p>COMMIT y ROLLBACK garantizan que operaciones críticas ocurran completas o no ocurran en absoluto.</p>
+      </div>
+    </div>
+
+    <div class="section-label">Ejemplo de código</div>
+    <div class="code-block">
+      <pre><span class="comment">-- Crear tabla de estudiantes</span>
+<span class="kw">CREATE TABLE</span> <span class="tbl">estudiantes</span> (
+  id        <span class="kw">INT AUTO_INCREMENT PRIMARY KEY</span>,
+  nombre    <span class="kw">VARCHAR</span>(<span class="num">100</span>) <span class="kw">NOT NULL</span>,
+  email     <span class="kw">VARCHAR</span>(<span class="num">150</span>) <span class="kw">UNIQUE</span>,
+  creado_en <span class="kw">TIMESTAMP DEFAULT CURRENT_TIMESTAMP</span>
+);
+
+<span class="comment">-- Insertar un registro</span>
+<span class="kw">INSERT INTO</span> <span class="tbl">estudiantes</span> (nombre, email)
+<span class="kw">VALUES</span> (<span class="str">'Josué Enrique'</span>, <span class="str">'josue@email.com'</span>);
+
+<span class="comment">-- Consultar con JOIN</span>
+<span class="kw">SELECT</span> e.nombre, c.titulo
+<span class="kw">FROM</span> <span class="tbl">estudiantes</span> e
+<span class="kw">JOIN</span> <span class="tbl">cursos</span> c <span class="kw">ON</span> e.id = c.estudiante_id
+<span class="kw">WHERE</span> c.aprobado = <span class="num">1</span>;</pre>
+    </div>
+
+    <div class="fun-fact">
+      <h3>💡 ¿Sabías que?</h3>
+      <p>MySQL fue creado en 1995 por Michael Widenius y David Axmark. El nombre "My" viene del nombre de la hija de Widenius. Hoy es usado por empresas como Facebook, Twitter, YouTube y Netflix para manejar billones de registros diariamente. Es el motor de bases de datos más popular según múltiples rankings.</p>
+    </div>
+  </div>
+</body>
+</html>
