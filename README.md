@@ -38,16 +38,16 @@ const josue = {
 
 <div align="center">
 
-<a href="https://TUUSUARIO.github.io/TUREPOSITORIO/html-page.html" target="_blank">
+<a href="https://cococnuts111.github.io/cococnuts111/html-page.html" target="_blank">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
 </a>
-<a href="https://TUUSUARIO.github.io/TUREPOSITORIO/css-page.html" target="_blank">
+<a href="https://cococnuts111.github.io/cococnuts111/css-page.html" target="_blank">
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
 </a>
-<a href="https://TUUSUARIO.github.io/TUREPOSITORIO/js-page.html" target="_blank">
+<a href="https://cococnuts111.github.io/cococnuts111/js-page.html" target="_blank">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
 </a>
-<a href="https://TUUSUARIO.github.io/TUREPOSITORIO/mysql-page.html" target="_blank">
+<a href="https://cococnuts111.github.io/cococnuts111/mysql-page.html" target="_blank">
   <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white"/>
 </a>
 
@@ -68,14 +68,14 @@ const josue = {
 
 <div align="center">
 
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=TUUSUARIO&show_icons=true&theme=dark&hide_border=true&bg_color=0a0608&title_color=bf4a20&icon_color=7a1a00&text_color=8a9ab0"/>
-<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=TUUSUARIO&layout=compact&theme=dark&hide_border=true&bg_color=0a0608&title_color=bf4a20&text_color=8a9ab0"/>
+<img height="180em" src="https://github-readme-stats.vercel.app/api?username=cococnuts111&show_icons=true&theme=dark&hide_border=true&bg_color=0a0608&title_color=bf4a20&icon_color=7a1a00&text_color=8a9ab0"/>
+<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=cococnuts111&layout=compact&theme=dark&hide_border=true&bg_color=0a0608&title_color=bf4a20&text_color=8a9ab0"/>
 
 </div>
 
 <div align="center">
 
-[![GitHub Streak](https://streak-stats.demolab.com?user=TUUSUARIO&theme=dark&hide_border=true&background=0A0608&stroke=3A1A10&ring=BF4A20&fire=E8C4A0&currStreakLabel=BF4A20&sideLabels=8A9AB0&dates=5A3020)](https://git.io/streak-stats)
+[![GitHub Streak](https://streak-stats.demolab.com?user=cococnuts111&theme=dark&hide_border=true&background=0A0608&stroke=3A1A10&ring=BF4A20&fire=E8C4A0&currStreakLabel=BF4A20&sideLabels=8A9AB0&dates=5A3020)](https://git.io/streak-stats)
 
 </div>
 
@@ -85,7 +85,7 @@ const josue = {
 
 <div align="center">
 
-[![trophy](https://github-profile-trophy.vercel.app/?username=TUUSUARIO&theme=darkhub&no-frame=true&no-bg=true&margin-w=4&column=6)](https://github.com/ryo-ma/github-profile-trophy)
+[![trophy](https://github-profile-trophy.vercel.app/?username=cococnuts111&theme=darkhub&no-frame=true&no-bg=true&margin-w=4&column=6)](https://github.com/ryo-ma/github-profile-trophy)
 
 </div>
 
@@ -102,9 +102,23 @@ const josue = {
 
 ---
 
+## 📋 Formulario de clientes
+
 <div align="center">
 
-![Visitas](https://komarev.com/ghpvc/?username=TUUSUARIO&color=bf4a20&style=flat-square&label=Visitas+al+perfil)
+¿Tienes un proyecto o pedido? Regístralo aquí 👇
+
+<br/><br/>
+
+[![FORMULARIO DE CLIENTES](https://img.shields.io/badge/Ω%20FORMULARIO%20DE%20CLIENTES-Registra%20tu%20pedido%20aquí-bf4a20?style=for-the-badge&labelColor=0a0608&logoColor=e8c4a0)](https://cococnuts111.github.io/cococnuts111/index.html)
+
+</div>
+
+---
+
+<div align="center">
+
+![Visitas](https://komarev.com/ghpvc/?username=cococnuts111&color=bf4a20&style=flat-square&label=Visitas+al+perfil)
 
 > *"La ecuación anti-vida te encontrará."* — Darkseid  **Ω**
 
