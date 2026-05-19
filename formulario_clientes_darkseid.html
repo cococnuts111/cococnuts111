@@ -4,468 +4,477 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulario de Clientes — Josué Enrique</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
   <style>
-    :root {
-      --bg:     #0a0608;
-      --bg2:    #0f0608;
-      --bg3:    #0d0508;
-      --red:    #7a1a00;
-      --red2:   #bf4a20;
-      --red3:   #e8c4a0;
-      --muted:  #c9b8b0;
-      --dim:    #5a3020;
-      --dimmer: #3a1a10;
-      --border: #3a1a10;
+    :root{
+      --bg:#0a0608;
+      --bg2:#0f0608;
+      --bg3:#0d0508;
+      --red:#7a1a00;
+      --red2:#bf4a20;
+      --red3:#e8c4a0;
+      --muted:#c9b8b0;
+      --dim:#5a3020;
+      --dimmer:#3a1a10;
+      --border:#3a1a10;
       --border2:#1a0a08;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--muted);
-      font-family: 'Share Tech Mono', monospace;
-      min-height: 100vh;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 40px 16px;
-      overflow-x: hidden;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 38px, #1a0a0810 39px),
-        repeating-linear-gradient(90deg, transparent, transparent 38px, #1a0a0810 39px);
-      pointer-events: none;
-      z-index: 0;
+    body{
+      background:var(--bg);
+      color:var(--muted);
+      font-family:'Share Tech Mono', monospace;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      padding:40px 15px;
     }
 
-    .wrap {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 680px;
+    .wrap{
+      width:100%;
+      max-width:700px;
     }
 
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      color: var(--dimmer);
-      text-decoration: none;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      transition: color 0.2s;
-    }
-    .back-btn:hover { color: var(--red2); }
-
-    .form-box { border: 0.5px solid var(--border); background: var(--bg); }
-
-    /* HEAD */
-    .fhead {
-      background: var(--bg2);
-      border-bottom: 2px solid var(--red);
-      padding: 28px 24px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .fhead::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 28px, #1a0a0814 29px),
-        repeating-linear-gradient(90deg, transparent, transparent 28px, #1a0a0814 29px);
-      pointer-events: none;
-    }
-    .fhead-omega { font-size: 38px; color: var(--red); display: block; line-height: 1; margin-bottom: 8px; position: relative; z-index: 1; }
-    .fhead-title { font-family: 'Cinzel', serif; font-size: 18px; color: var(--red3); letter-spacing: 5px; text-transform: uppercase; position: relative; z-index: 1; }
-    .fhead-sub   { font-size: 10px; color: var(--dim); letter-spacing: 3px; text-transform: uppercase; margin-top: 5px; position: relative; z-index: 1; }
-
-    /* BODY */
-    .fbody { padding: 24px; }
-
-    .divider {
-      border: none; border-top: 0.5px solid var(--border2);
-      margin: 20px 0 18px; position: relative;
-    }
-    .divider-label {
-      position: absolute; top: -9px; left: 50%; transform: translateX(-50%);
-      background: var(--bg); padding: 0 14px;
-      font-size: 10px; color: var(--dimmer); letter-spacing: 3px; text-transform: uppercase; white-space: nowrap;
+    .form-box{
+      border:1px solid var(--border);
+      background:var(--bg);
     }
 
-    .row       { display: grid; grid-template-columns: 1fr 1fr;    gap: 14px; margin-bottom: 14px; }
-    .row.full  { grid-template-columns: 1fr; }
-    .row.three { grid-template-columns: 1fr 1fr 1fr; }
-
-    .field { display: flex; flex-direction: column; gap: 6px; }
-
-    .label {
-      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--red); display: flex; align-items: center; gap: 6px;
-    }
-    .label i { font-size: 13px; }
-
-    .inp, .sel, .txa {
-      background: var(--bg3);
-      border: 0.5px solid var(--border);
-      color: var(--muted);
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 13px;
-      padding: 10px 12px;
-      outline: none;
-      transition: border-color 0.2s;
-      width: 100%;
-      -webkit-appearance: none;
-    }
-    .inp:focus, .sel:focus, .txa:focus { border-color: var(--red2); }
-    .inp::placeholder, .txa::placeholder { color: #3a2018; }
-    .inp.err { border-color: var(--red2) !important; }
-    .sel option { background: var(--bg3); color: var(--muted); }
-    .txa { resize: vertical; min-height: 80px; }
-
-    .btn-enviar {
-      width: 100%; padding: 14px;
-      background: transparent;
-      border: 1px solid var(--red);
-      color: var(--red2);
-      font-family: 'Cinzel', serif;
-      font-size: 13px; letter-spacing: 4px; text-transform: uppercase;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
-      margin-top: 8px;
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-    }
-    .btn-enviar:hover    { background: var(--border2); color: var(--red3); border-color: var(--red2); }
-    .btn-enviar:disabled { opacity: 0.4; cursor: not-allowed; }
-    .btn-enviar i { font-size: 16px; }
-
-    .toast {
-      display: none; padding: 14px; margin-top: 12px;
-      text-align: center; font-size: 12px; letter-spacing: 2px;
-      border: 0.5px solid var(--red); color: var(--red2);
+    .fhead{
+      background:var(--bg2);
+      border-bottom:2px solid var(--red);
+      padding:30px;
+      text-align:center;
     }
 
-    /* TABLA */
-    .tabla-section { margin-top: 40px; }
-    .section-title {
-      font-family: 'Cinzel', serif; font-size: 12px;
-      color: var(--red2); letter-spacing: 4px; text-transform: uppercase;
-      margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+    .fhead-omega{
+      font-size:40px;
+      color:var(--red);
     }
-    .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-    .table-wrap { border: 0.5px solid var(--border); overflow-x: auto; }
-    .reg-table { width: 100%; border-collapse: collapse; font-size: 12px; }
-    .reg-table th {
-      background: var(--bg2); color: var(--red2);
-      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-      padding: 10px 12px; text-align: left;
-      border-bottom: 1px solid var(--red); white-space: nowrap;
+    .fhead-title{
+      font-family:'Cinzel', serif;
+      font-size:20px;
+      letter-spacing:5px;
+      color:var(--red3);
+      margin-top:10px;
     }
-    .reg-table td {
-      padding: 9px 12px; border-bottom: 0.5px solid var(--border2);
-      color: var(--muted); vertical-align: middle; white-space: nowrap;
+
+    .fhead-sub{
+      font-size:11px;
+      color:var(--dim);
+      margin-top:5px;
+      letter-spacing:2px;
     }
-    .reg-table tr:last-child td { border-bottom: none; }
-    .reg-table tr:hover td { background: var(--border2); }
 
-    .pill { display: inline-block; padding: 3px 10px; font-size: 10px; letter-spacing: 1px; border: 0.5px solid var(--border); color: var(--dim); }
-    .pill.pendiente { border-color: #7a6010; color: #c9a020; }
-    .pill.proceso   { border-color: var(--red); color: var(--red2); }
-    .pill.entregado { border-color: #1a6020; color: #40c060; }
-    .pill.cancelado { border-color: #501010; color: #c04040; }
-
-    .empty-td { text-align: center; color: var(--dimmer); padding: 28px; font-size: 11px; letter-spacing: 2px; }
-
-    .del-btn {
-      background: transparent; border: 0.5px solid var(--dimmer);
-      color: var(--dimmer); cursor: pointer; padding: 4px 8px; font-size: 12px;
-      transition: border-color 0.2s, color 0.2s;
+    .fbody{
+      padding:25px;
     }
-    .del-btn:hover { border-color: var(--red2); color: var(--red2); }
 
-    /* FOOTER */
-    .ffoot {
-      border-top: 2px solid var(--border);
-      padding: 14px 24px;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 10px;
-      background: var(--bg2);
+    .divider{
+      margin:25px 0 15px;
+      border-top:1px solid var(--border);
+      position:relative;
     }
-    .ffoot-links { display: flex; gap: 20px; flex-wrap: wrap; }
-    .ffoot-links a {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 11px; color: var(--dimmer); text-decoration: none;
-      letter-spacing: 1px; transition: color 0.2s;
-    }
-    .ffoot-links a:hover { color: var(--red2); }
-    .ffoot-links i { font-size: 14px; }
-    .ffoot-omega { font-family: 'Cinzel', serif; font-size: 10px; color: var(--dimmer); letter-spacing: 4px; }
 
-    @media (max-width: 540px) {
-      .row, .row.three { grid-template-columns: 1fr; }
+    .divider span{
+      position:absolute;
+      top:-8px;
+      left:50%;
+      transform:translateX(-50%);
+      background:var(--bg);
+      padding:0 10px;
+      font-size:10px;
+      color:var(--dimmer);
+      letter-spacing:2px;
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:15px;
+      margin-bottom:15px;
+    }
+
+    .row.full{
+      grid-template-columns:1fr;
+    }
+
+    .row.three{
+      grid-template-columns:1fr 1fr 1fr;
+    }
+
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    .label{
+      font-size:10px;
+      color:var(--red);
+      letter-spacing:2px;
+      text-transform:uppercase;
+      display:flex;
+      align-items:center;
+      gap:5px;
+    }
+
+    .inp,
+    .sel,
+    .txa{
+      background:var(--bg3);
+      border:1px solid var(--border);
+      color:var(--muted);
+      padding:11px;
+      font-family:'Share Tech Mono', monospace;
+      outline:none;
+      width:100%;
+    }
+
+    .inp:focus,
+    .sel:focus,
+    .txa:focus{
+      border-color:var(--red2);
+    }
+
+    .txa{
+      resize:vertical;
+      min-height:90px;
+    }
+
+    .btn{
+      width:100%;
+      padding:14px;
+      border:1px solid var(--red);
+      background:transparent;
+      color:var(--red2);
+      font-family:'Cinzel', serif;
+      letter-spacing:4px;
+      cursor:pointer;
+      margin-top:10px;
+      transition:0.2s;
+    }
+
+    .btn:hover{
+      background:var(--border2);
+      color:var(--red3);
+    }
+
+    .toast{
+      margin-top:15px;
+      padding:12px;
+      text-align:center;
+      display:none;
+      border:1px solid #1a6020;
+      color:#40c060;
+    }
+
+    @media(max-width:600px){
+      .row,
+      .row.three{
+        grid-template-columns:1fr;
+      }
     }
   </style>
 </head>
-<body>
-<div class="wrap">
 
-  <a href="index.html" class="back-btn"><i class="ti ti-arrow-left"></i> Volver al inicio</a>
+<body>
+
+<div class="wrap">
 
   <div class="form-box">
 
     <div class="fhead">
-      <span class="fhead-omega">Ω</span>
+      <div class="fhead-omega">Ω</div>
       <div class="fhead-title">Registro de Clientes</div>
       <div class="fhead-sub">Josué Enrique · El Salvador 🇸🇻</div>
     </div>
 
     <div class="fbody">
-      <form action="https://formspree.io/f/mpqnwjvb" method="POST">
 
-      <div class="divider"><span class="divider-label">Datos personales</span></div>
+      <form action="https://formspree.io/f/mpqnwjvb" method="POST" id="mi-formulario">
 
-      <div class="row">
-        <div class="field">
-          <label class="label" for="f-nombre"><i class="ti ti-user"></i> Nombre completo *</label>
-          <input class="inp" type="text" id="f-nombre" placeholder="Ej: María López">
+        <div class="divider">
+          <span>DATOS PERSONALES</span>
         </div>
-        <div class="field">
-          <label class="label" for="f-dui"><i class="ti ti-id-badge"></i> DUI *</label>
-          <input class="inp" type="text" id="f-dui" placeholder="00000000-0" maxlength="10">
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="field">
-          <label class="label" for="f-tel"><i class="ti ti-phone"></i> Teléfono *</label>
-          <input class="inp" type="tel" id="f-tel" placeholder="7000-0000">
-        </div>
-        <div class="field">
-          <label class="label" for="f-email"><i class="ti ti-mail"></i> Correo electrónico</label>
-          <input class="inp" type="email" id="f-email" placeholder="cliente@gmail.com">
-        </div>
-      </div>
+        <div class="row">
 
-      <div class="row full">
-        <div class="field">
-          <label class="label" for="f-dir"><i class="ti ti-map-pin"></i> Dirección</label>
-          <input class="inp" type="text" id="f-dir" placeholder="Colonia, municipio, departamento">
-        </div>
-      </div>
+          <div class="field">
+            <label class="label">
+              <i class="ti ti-user"></i>
+              Nombre completo *
+            </label>
 
-      <div class="divider"><span class="divider-label">Datos del pedido</span></div>
+            <input
+              class="inp"
+              type="text"
+              id="f-nombre"
+              name="nombre"
+              required
+              placeholder="Ej: María López">
+          </div>
 
-      <div class="row">
-        <div class="field">
-          <label class="label" for="f-nped"><i class="ti ti-hash"></i> N° de pedido</label>
-          <input class="inp" type="text" id="f-nped" readonly>
-        </div>
-        <div class="field">
-          <label class="label" for="f-fecha"><i class="ti ti-calendar"></i> Fecha</label>
-          <input class="inp" type="date" id="f-fecha">
-        </div>
-      </div>
+          <div class="field">
+            <label class="label">
+              <i class="ti ti-id-badge"></i>
+              DUI *
+            </label>
 
-      <div class="row full">
-        <div class="field">
-          <label class="label" for="f-pedido"><i class="ti ti-package"></i> Descripción del pedido *</label>
-          <textarea class="txa" id="f-pedido" placeholder="Describe el producto o servicio solicitado..."></textarea>
-        </div>
-      </div>
+            <input
+              class="inp"
+              type="text"
+              id="f-dui"
+              name="dui"
+              maxlength="10"
+              required
+              placeholder="00000000-0">
+          </div>
 
-      <div class="row three">
-        <div class="field">
-          <label class="label" for="f-cant"><i class="ti ti-stack"></i> Cantidad</label>
-          <input class="inp" type="number" id="f-cant" placeholder="1" min="1">
         </div>
-        <div class="field">
-          <label class="label" for="f-total"><i class="ti ti-currency-dollar"></i> Total ($)</label>
-          <input class="inp" type="number" id="f-total" placeholder="0.00" step="0.01">
-        </div>
-        <div class="field">
-          <label class="label" for="f-estado"><i class="ti ti-adjustments"></i> Estado *</label>
-          <select class="sel" id="f-estado">
-            <option value="">Seleccionar...</option>
-            <option>Pendiente</option>
-            <option>En proceso</option>
-            <option>Entregado</option>
-            <option>Cancelado</option>
-          </select>
-        </div>
-      </div>
 
-      <div class="row full">
-        <div class="field">
-          <label class="label" for="f-obs"><i class="ti ti-notes"></i> Observaciones</label>
-          <textarea class="txa" id="f-obs" style="min-height:60px" placeholder="Notas adicionales..."></textarea>
+        <div class="row">
+
+          <div class="field">
+            <label class="label">
+              <i class="ti ti-phone"></i>
+              Teléfono *
+            </label>
+
+            <input
+              class="inp"
+              type="tel"
+              id="f-tel"
+              name="telefono"
+              required
+              placeholder="7000-0000">
+          </div>
+
+          <div class="field">
+            <label class="label">
+              <i class="ti ti-mail"></i>
+              Correo
+            </label>
+
+            <input
+              class="inp"
+              type="email"
+              id="f-email"
+              name="correo"
+              placeholder="cliente@gmail.com">
+          </div>
+
         </div>
-      </div>
 
-      <button class="btn-enviar" id="btn-enviar" onclick="registrar()">
-        <i class="ti ti-send"></i> Registrar pedido — Ω
-      </button>
+        <div class="row full">
 
-      <div class="toast" id="toast"></div>
-    </form>
+          <div class="field">
+            <label class="label">
+              <i class="ti ti-map-pin"></i>
+              Dirección
+            </label>
+
+            <input
+              class="inp"
+              type="text"
+              id="f-dir"
+              name="direccion"
+              placeholder="Colonia, municipio, departamento">
+          </div>
+
+        </div>
+
+        <div class="divider">
+          <span>DATOS DEL PEDIDO</span>
+        </div>
+
+        <div class="row">
+
+          <div class="field">
+            <label class="label">
+              <i class="ti ti-calendar"></i>
+              Fecha
+            </label>
+
+            <input
+              class="inp"
+              type="date"
+              id="f-fecha"
+              name="fecha">
+          </div>
+
+          <div class="field">
+            <label class="label">
+              <i class="ti ti-adjustments"></i>
+              Estado *
+            </label>
+
+            <select
+              class="sel"
+              id="f-estado"
+              name="estado"
+              required>
+
+              <option value="">Seleccionar...</option>
+              <option>Pendiente</option>
+              <option>En proceso</option>
+              <option>Entregado</option>
+              <option>Cancelado</option>
+
+            </select>
+          </div>
+
+        </div>
+
+        <div class="row full">
+
+          <div class="field">
+            <label class="label">
+              <i class="ti ti-package"></i>
+              Pedido *
+            </label>
+
+            <textarea
+              class="txa"
+              id="f-pedido"
+              name="pedido"
+              required
+              placeholder="Describe el producto o servicio..."></textarea>
+          </div>
+
+        </div>
+
+        <div class="row three">
+
+          <div class="field">
+            <label class="label">
+              <i class="ti ti-stack"></i>
+              Cantidad
+            </label>
+
+            <input
+              class="inp"
+              type="number"
+              id="f-cant"
+              name="cantidad"
+              min="1"
+              placeholder="1">
+          </div>
+
+          <div class="field">
+            <label class="label">
+              <i class="ti ti-currency-dollar"></i>
+              Total
+            </label>
+
+            <input
+              class="inp"
+              type="number"
+              id="f-total"
+              name="total"
+              step="0.01"
+              placeholder="0.00">
+          </div>
+
+          <div class="field">
+            <label class="label">
+              <i class="ti ti-notes"></i>
+              Observaciones
+            </label>
+
+            <input
+              class="inp"
+              type="text"
+              id="f-obs"
+              name="observaciones"
+              placeholder="Notas extras">
+          </div>
+
+        </div>
+
+        <button type="submit" class="btn">
+          Registrar pedido — Ω
+        </button>
+
+        <div class="toast" id="toast">
+          ✓ Pedido enviado correctamente
+        </div>
+
+      </form>
+
     </div>
 
-    <div class="ffoot">
-      <div class="ffoot-links">
-        <a href="mailto:TU_CORREO@gmail.com"><i class="ti ti-mail"></i> TU_CORREO@gmail.com</a>
-        <a href="https://github.com/cococnuts111" target="_blank"><i class="ti ti-brand-github"></i> cococnuts111</a>
-      </div>
-      <div class="ffoot-omega">Ω Josué Enrique Ω</div>
-    </div>
-
-  </div>
-
-  <!-- HISTORIAL -->
-  <div class="tabla-section">
-    <div class="section-title"><i class="ti ti-table"></i> Historial de pedidos</div>
-    <div class="table-wrap">
-      <table class="reg-table">
-        <thead>
-          <tr>
-            <th>N° Pedido</th>
-            <th>Fecha</th>
-            <th>Nombre</th>
-            <th>DUI</th>
-            <th>Teléfono</th>
-            <th>Pedido</th>
-            <th>Cant.</th>
-            <th>Total</th>
-            <th>Estado</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody id="tabla-body">
-          <tr><td class="empty-td" colspan="10">Ω &nbsp; Sin registros aún &nbsp; Ω</td></tr>
-        </tbody>
-      </table>
-    </div>
   </div>
 
 </div>
 
 <script>
-  /* ── EMAILJS — reemplaza con tus datos reales ── */
-  const EMAILJS_PUBLIC_KEY  = 'TU_PUBLIC_KEY';
-  const EMAILJS_SERVICE_ID  = 'TU_SERVICE_ID';
-  const EMAILJS_TEMPLATE_ID = 'TU_TEMPLATE_ID';
-  const MI_CORREO           = 'TU_CORREO@gmail.com';
 
-  emailjs.init(EMAILJS_PUBLIC_KEY);
-
-  let pedNum    = parseInt(localStorage.getItem('pedNum') || '1');
-  let registros = JSON.parse(localStorage.getItem('registros') || '[]');
-
-  document.getElementById('f-fecha').value = new Date().toISOString().split('T')[0];
-  document.getElementById('f-nped').value  = 'PED-' + String(pedNum).padStart(4,'0');
-  renderTabla();
+  document.getElementById('f-fecha').value =
+    new Date().toISOString().split('T')[0];
 
   document.getElementById('f-dui').addEventListener('input', function(){
+
     let v = this.value.replace(/[^0-9]/g,'');
-    if(v.length > 8) v = v.slice(0,8) + '-' + v.slice(8,9);
+
+    if(v.length > 8){
+      v = v.slice(0,8) + '-' + v.slice(8,9);
+    }
+
     this.value = v;
+
   });
 
-  function registrar(){
-    const reqs = ['f-nombre','f-dui','f-tel','f-pedido','f-estado'];
-    let ok = true;
-    reqs.forEach(id => {
-      const el = document.getElementById(id);
-      if(!el.value.trim()){ el.classList.add('err'); ok = false; }
-      else el.classList.remove('err');
+  const form = document.getElementById('mi-formulario');
+
+  form.addEventListener('submit', async function(e){
+
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    const res = await fetch(form.action,{
+      method:'POST',
+      body:data,
+      headers:{
+        'Accept':'application/json'
+      }
     });
-    if(!ok){ toast('⚠ Completa los campos obligatorios (*)'); return; }
 
-    const reg = {
-      pedido_num:    document.getElementById('f-nped').value,
-      fecha:         document.getElementById('f-fecha').value,
-      nombre:        document.getElementById('f-nombre').value.trim(),
-      dui:           document.getElementById('f-dui').value.trim(),
-      telefono:      document.getElementById('f-tel').value.trim(),
-      email_cliente: document.getElementById('f-email').value.trim() || '—',
-      direccion:     document.getElementById('f-dir').value.trim()   || '—',
-      pedido:        document.getElementById('f-pedido').value.trim(),
-      cantidad:      document.getElementById('f-cant').value  || '—',
-      total:         document.getElementById('f-total').value ? '$'+parseFloat(document.getElementById('f-total').value).toFixed(2) : '—',
-      estado:        document.getElementById('f-estado').value,
-      observaciones: document.getElementById('f-obs').value.trim() || '—'
-    };
+    const toast = document.getElementById('toast');
 
-    registros.unshift(reg);
-    localStorage.setItem('registros', JSON.stringify(registros));
-    pedNum++;
-    localStorage.setItem('pedNum', pedNum);
-    renderTabla();
+    if(res.ok){
 
-    const btn = document.getElementById('btn-enviar');
-    btn.disabled = true;
+      toast.style.display = 'block';
 
-    if(EMAILJS_PUBLIC_KEY !== 'TU_PUBLIC_KEY'){
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, { ...reg, to_email: MI_CORREO })
-        .then(()  => toast('✓ Pedido registrado y correo enviado', true))
-        .catch(()  => toast('✓ Pedido guardado — revisa EmailJS', true))
-        .finally(() => { btn.disabled = false; });
+      form.reset();
+
+      document.getElementById('f-fecha').value =
+        new Date().toISOString().split('T')[0];
+
+      setTimeout(()=>{
+        toast.style.display = 'none';
+      },4000);
+
     } else {
-      toast('✓ Pedido guardado — configura EmailJS para recibir correos', true);
-      btn.disabled = false;
+
+      alert('Error al enviar formulario');
+
     }
 
-    ['f-nombre','f-dui','f-tel','f-email','f-dir','f-pedido','f-cant','f-total','f-estado','f-obs']
-      .forEach(id => document.getElementById(id).value = '');
-    document.getElementById('f-nped').value  = 'PED-' + String(pedNum).padStart(4,'0');
-    document.getElementById('f-fecha').value = new Date().toISOString().split('T')[0];
-  }
+  });
 
-  function renderTabla(){
-    const tbody = document.getElementById('tabla-body');
-    if(!registros.length){
-      tbody.innerHTML = '<tr><td class="empty-td" colspan="10">Ω &nbsp; Sin registros aún &nbsp; Ω</td></tr>';
-      return;
-    }
-    tbody.innerHTML = registros.map((r,i) => {
-      const cls = { 'Pendiente':'pendiente','En proceso':'proceso','Entregado':'entregado','Cancelado':'cancelado' }[r.estado] || '';
-      return `<tr>
-        <td>${r.pedido_num}</td><td>${r.fecha}</td><td>${r.nombre}</td>
-        <td>${r.dui}</td><td>${r.telefono}</td>
-        <td style="max-width:140px;overflow:hidden;text-overflow:ellipsis">${r.pedido}</td>
-        <td>${r.cantidad}</td><td>${r.total}</td>
-        <td><span class="pill ${cls}">${r.estado}</span></td>
-        <td><button class="del-btn" onclick="eliminar(${i})"><i class="ti ti-trash" style="font-size:13px"></i></button></td>
-      </tr>`;
-    }).join('');
-  }
-
-  function eliminar(i){
-    if(!confirm('¿Eliminar este registro?')) return;
-    registros.splice(i,1);
-    localStorage.setItem('registros', JSON.stringify(registros));
-    renderTabla();
-  }
-
-  function toast(msg, ok=false){
-    const el = document.getElementById('toast');
-    el.textContent = msg;
-    el.style.display = 'block';
-    el.style.borderColor = ok ? '#1a6020' : '#7a1a00';
-    el.style.color = ok ? '#40c060' : '#c04040';
-    setTimeout(()=>{ el.style.display='none'; }, 4000);
-  }
 </script>
+
 </body>
 </html>
