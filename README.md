@@ -110,7 +110,7 @@ const josue = {
 
 <br/><br/>
 
-[![FORMULARIO DE CLIENTES](https://img.shields.io/badge/Ω%20FORMULARIO%20DE%20CLIENTES-Registra%20tu%20pedido%20aquí-bf4a20?style=for-the-badge&labelColor=0a0608&logoColor=e8c4a0)](https://cococnuts111.github.io/cococnuts111/index.html)
+[![FORMULARIO DE CLIENTES](https://img.shields.io/badge/Ω%20FORMULARIO%20DE%20CLIENTES-Registra%20tu%20pedido%20aquí-bf4a20?style=for-the-badge&labelColor=0a0608&logoColor=e8c4a0)](https://cococnuts111.github.io/cococnuts111/formulario.html)
 
 </div>
 
