@@ -1,0 +1,259 @@
+
+<h2 class="sr-only">Formulario de registro de clientes estilo Darkseid</h2>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Share+Tech+Mono&display=swap');
+
+.ds { background:#0a0608; color:#c9b8b0; font-family:'Share Tech Mono',monospace; padding:0; }
+
+.ds-head {
+  background:#0f0608;
+  border-bottom:2px solid #7a1a00;
+  padding:24px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.ds-head::before {
+  content:'';position:absolute;inset:0;
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 28px,#1a0a0814 29px),
+    repeating-linear-gradient(90deg,transparent,transparent 28px,#1a0a0814 29px);
+  pointer-events:none;
+}
+.ds-omega { font-size:36px; color:#7a1a00; display:block; line-height:1; margin-bottom:6px; position:relative; z-index:1; }
+.ds-htitle { font-family:'Cinzel',serif; font-size:18px; color:#e8c4a0; letter-spacing:5px; text-transform:uppercase; position:relative; z-index:1; }
+.ds-hsub { font-size:11px; color:#5a3020; letter-spacing:3px; text-transform:uppercase; margin-top:4px; position:relative; z-index:1; }
+
+.ds-body { padding:24px; }
+
+.ds-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
+.ds-row.full { grid-template-columns:1fr; }
+.ds-row.three { grid-template-columns:1fr 1fr 1fr; }
+
+.ds-field { display:flex; flex-direction:column; gap:6px; }
+
+.ds-label {
+  font-size:10px; letter-spacing:3px; text-transform:uppercase;
+  color:#7a1a00; display:flex; align-items:center; gap:6px;
+}
+.ds-label i { font-size:13px; }
+
+.ds-input, .ds-select, .ds-textarea {
+  background:#0d0508;
+  border:0.5px solid #3a1a10;
+  color:#c9b8b0;
+  font-family:'Share Tech Mono',monospace;
+  font-size:13px;
+  padding:10px 12px;
+  outline:none;
+  transition:border-color 0.2s;
+  border-radius:0;
+  width:100%;
+  box-sizing:border-box;
+  -webkit-appearance:none;
+}
+.ds-input:focus, .ds-select:focus, .ds-textarea:focus { border-color:#bf4a20; }
+.ds-input::placeholder, .ds-textarea::placeholder { color:#3a2018; }
+.ds-select option { background:#0d0508; }
+.ds-textarea { resize:vertical; min-height:80px; }
+
+.ds-divider {
+  border:none; border-top:0.5px solid #1a0a08;
+  margin:20px 0; position:relative;
+}
+.ds-divider-label {
+  position:absolute; top:-9px; left:50%; transform:translateX(-50%);
+  background:#0a0608; padding:0 12px;
+  font-size:10px; color:#3a1a10; letter-spacing:3px; text-transform:uppercase;
+  white-space:nowrap;
+}
+
+.ds-submit {
+  width:100%; padding:14px;
+  background:transparent;
+  border:1px solid #7a1a00;
+  color:#bf4a20;
+  font-family:'Cinzel',serif;
+  font-size:13px; letter-spacing:4px; text-transform:uppercase;
+  cursor:pointer;
+  transition:background 0.2s, color 0.2s;
+  margin-top:8px;
+  display:flex; align-items:center; justify-content:center; gap:10px;
+}
+.ds-submit:hover { background:#1a0a08; color:#e8c4a0; border-color:#bf4a20; }
+.ds-submit i { font-size:16px; }
+
+.ds-contact-bar {
+  display:flex; gap:0;
+  border-top:0.5px solid #1a0a08;
+  margin-top:0;
+}
+.ds-contact-item {
+  flex:1; padding:12px 8px; text-align:center;
+  border-right:0.5px solid #1a0a08;
+  font-size:11px; color:#3a1a10; letter-spacing:1px;
+  display:flex; align-items:center; justify-content:center; gap:6px;
+}
+.ds-contact-item:last-child { border-right:none; }
+.ds-contact-item i { font-size:14px; color:#5a1a00; }
+
+.ds-footer-bar {
+  background:#0f0608; border-top:2px solid #3a1a10;
+  padding:14px 24px; text-align:center;
+}
+.ds-footer-text { font-family:'Cinzel',serif; font-size:10px; color:#2a0e08; letter-spacing:4px; text-transform:uppercase; }
+
+.ds-success {
+  display:none; padding:16px; margin-top:12px;
+  background:#0d0508; border:0.5px solid #7a1a00;
+  text-align:center; font-size:13px; color:#bf4a20; letter-spacing:2px;
+}
+
+@media(max-width:500px){
+  .ds-row { grid-template-columns:1fr; }
+  .ds-row.three { grid-template-columns:1fr; }
+}
+</style>
+
+<div class="ds">
+
+  <div class="ds-head">
+    <span class="ds-omega">Ω</span>
+    <div class="ds-htitle">Registro de clientes</div>
+    <div class="ds-hsub">Josué Enrique — Dev Student</div>
+  </div>
+
+  <div class="ds-body">
+
+    <div class="ds-divider"><span class="ds-divider-label">Datos personales</span></div>
+
+    <div class="ds-row">
+      <div class="ds-field">
+        <label class="ds-label"><i class="ti ti-user" aria-hidden="true"></i> Nombre completo</label>
+        <input class="ds-input" type="text" placeholder="Ej: María López" id="f-nombre"/>
+      </div>
+      <div class="ds-field">
+        <label class="ds-label"><i class="ti ti-id-badge" aria-hidden="true"></i> DUI</label>
+        <input class="ds-input" type="text" placeholder="00000000-0" id="f-dui" maxlength="10"/>
+      </div>
+    </div>
+
+    <div class="ds-row">
+      <div class="ds-field">
+        <label class="ds-label"><i class="ti ti-phone" aria-hidden="true"></i> Teléfono</label>
+        <input class="ds-input" type="tel" placeholder="7000-0000" id="f-tel"/>
+      </div>
+      <div class="ds-field">
+        <label class="ds-label"><i class="ti ti-mail" aria-hidden="true"></i> Correo electrónico</label>
+        <input class="ds-input" type="email" placeholder="correo@gmail.com" id="f-email"/>
+      </div>
+    </div>
+
+    <div class="ds-row full">
+      <div class="ds-field">
+        <label class="ds-label"><i class="ti ti-map-pin" aria-hidden="true"></i> Dirección</label>
+        <input class="ds-input" type="text" placeholder="Colonia, municipio, departamento" id="f-dir"/>
+      </div>
+    </div>
+
+    <div class="ds-divider"><span class="ds-divider-label">Datos del pedido</span></div>
+
+    <div class="ds-row">
+      <div class="ds-field">
+        <label class="ds-label"><i class="ti ti-hash" aria-hidden="true"></i> N° de pedido</label>
+        <input class="ds-input" type="text" placeholder="Auto: PED-0001" id="f-nped" readonly/>
+      </div>
+      <div class="ds-field">
+        <label class="ds-label"><i class="ti ti-calendar" aria-hidden="true"></i> Fecha</label>
+        <input class="ds-input" type="date" id="f-fecha"/>
+      </div>
+    </div>
+
+    <div class="ds-row full">
+      <div class="ds-field">
+        <label class="ds-label"><i class="ti ti-package" aria-hidden="true"></i> Descripción del pedido</label>
+        <textarea class="ds-textarea" placeholder="Describe el producto o servicio solicitado..." id="f-pedido"></textarea>
+      </div>
+    </div>
+
+    <div class="ds-row three">
+      <div class="ds-field">
+        <label class="ds-label"><i class="ti ti-stack" aria-hidden="true"></i> Cantidad</label>
+        <input class="ds-input" type="number" placeholder="1" min="1" id="f-cant"/>
+      </div>
+      <div class="ds-field">
+        <label class="ds-label"><i class="ti ti-currency-dollar" aria-hidden="true"></i> Total ($)</label>
+        <input class="ds-input" type="number" placeholder="0.00" step="0.01" id="f-total"/>
+      </div>
+      <div class="ds-field">
+        <label class="ds-label"><i class="ti ti-adjustments" aria-hidden="true"></i> Estado</label>
+        <select class="ds-select" id="f-estado">
+          <option value="">Seleccionar...</option>
+          <option>Pendiente</option>
+          <option>En proceso</option>
+          <option>Entregado</option>
+          <option>Cancelado</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="ds-row full">
+      <div class="ds-field">
+        <label class="ds-label"><i class="ti ti-notes" aria-hidden="true"></i> Observaciones</label>
+        <textarea class="ds-textarea" style="min-height:60px" placeholder="Notas adicionales del pedido..." id="f-obs"></textarea>
+      </div>
+    </div>
+
+    <button class="ds-submit" onclick="enviar()">
+      <i class="ti ti-send" aria-hidden="true"></i>
+      Registrar pedido — Ω
+    </button>
+
+    <div class="ds-success" id="success">
+      <i class="ti ti-check" style="font-size:20px;display:block;margin-bottom:6px"></i>
+      Pedido registrado correctamente
+    </div>
+
+  </div>
+
+  <div class="ds-contact-bar">
+    <div class="ds-contact-item"><i class="ti ti-mail" aria-hidden="true"></i> josueenrique.dev@gmail.com</div>
+    <div class="ds-contact-item"><i class="ti ti-brand-github" aria-hidden="true"></i> github.com/JosueEnrique-Dev</div>
+  </div>
+
+  <div class="ds-footer-bar">
+    <div class="ds-footer-text">Ω &nbsp; Josué Enrique · El Salvador &nbsp; Ω</div>
+  </div>
+
+</div>
+
+<script>
+let pedNum = 1;
+
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('f-fecha').value = today;
+document.getElementById('f-nped').value = 'PED-' + String(pedNum).padStart(4,'0');
+
+document.getElementById('f-dui').addEventListener('input', function(){
+  let v = this.value.replace(/[^0-9]/g,'');
+  if(v.length > 8) v = v.slice(0,8) + '-' + v.slice(8,9);
+  this.value = v;
+});
+
+function enviar(){
+  const campos = ['f-nombre','f-dui','f-tel','f-email','f-pedido','f-estado'];
+  let ok = true;
+  campos.forEach(id => {
+    const el = document.getElementById(id);
+    if(!el.value.trim()){ el.style.borderColor='#bf4a20'; ok=false; }
+    else el.style.borderColor='#3a1a10';
+  });
+  if(!ok) return;
+  const s = document.getElementById('success');
+  s.style.display = 'block';
+  pedNum++;
+  document.getElementById('f-nped').value = 'PED-' + String(pedNum).padStart(4,'0');
+  ['f-nombre','f-dui','f-tel','f-email','f-dir','f-pedido','f-cant','f-total','f-estado','f-obs']
+    .forEach(id => document.getElementById(id).value = '');
+  setTimeout(()=>{ s.style.display='none'; }, 3000);
+}
+</script>
