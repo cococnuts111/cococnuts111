@@ -88,7 +88,7 @@
 
 [![Gmail](https://img.shields.io/badge/Gmail-bf4a20?style=for-the-badge&logo=gmail&logoColor=e8c4a0)](mailto:JosueEnrique@gmail.com)
 [![GitHub](https://img.shields.io/badge/GitHub-0a0608?style=for-the-badge&logo=github&logoColor=e8c4a0)](https://github.com/cococnuts111)
-
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-bf4a20?style=for-the-badge&logo=whatsapp&logoColor=e8c4a0)](https://wa.me/50300000000)
 </div>
 
 ---
