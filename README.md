@@ -16,23 +16,16 @@
 
 </div>
 
----
-
 ## ⚡ Protocolo de identidad
 
-```javascript
-const josue = {
-  nombre:    "Josué Enrique",
-  origen:    "El Salvador 🇸🇻",
-  mision:    "Bachillerato Técnico en Desarrollo de Software",
-  nivel:     "2° Año",
-  arsenal:   ["HTML5", "CSS3", "JavaScript", "MySQL"],
-  objetivo:  "Dominar el desarrollo web 🔥",
-  estado:    "Estudiando activamente..."
-};
-```
+> **nombre** → Josué Enrique
+> **origen** → El Salvador 🇸🇻
+> **misión** → Bachillerato Técnico en Desarrollo de Software
+> **nivel** → 2° Año
+> **arsenal** → HTML5 · CSS3 · JavaScript · MySQL
+> **objetivo** → Dominar el desarrollo web 🔥
+> **estado** → Estudiando activamente...
 
----
 
 ## 🔥 Arsenal tecnológico
 
