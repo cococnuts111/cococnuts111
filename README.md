@@ -37,20 +37,18 @@ const josue = {
 ## 🔥 Arsenal tecnológico
 
 <div align="center">
-
-<a href="https://cococnuts111.github.io/cococnuts111/html-page.html" target="_blank">
+<a href="https://cococnuts111.github.io/cococnuts111/html-page%20git%20hub.html" target="_blank">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
 </a>
-<a href="https://cococnuts111.github.io/cococnuts111/css-page.html" target="_blank">
+<a href="https://cococnuts111.github.io/cococnuts111/css-page%20git%20hub.html" target="_blank">
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
 </a>
-<a href="https://cococnuts111.github.io/cococnuts111/js-page.html" target="_blank">
+<a href="https://cococnuts111.github.io/cococnuts111/js-page%20git%20hub.html" target="_blank">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
 </a>
-<a href="https://cococnuts111.github.io/cococnuts111/mysql-page.html" target="_blank">
+<a href="https://cococnuts111.github.io/cococnuts111/mysql-page%20git%20hub.html" target="_blank">
   <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white"/>
 </a>
-
 <br/><br/>
 
 | Tecnología | Progreso |
