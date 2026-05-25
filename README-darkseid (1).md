@@ -1,5 +1,5 @@
 <div align="center">
-<img src=https://res.cloudinary.com/dubllr2vg/image/upload/v1779738245/meta_ai_wzdwbu.jpg width="175" >
+<img src="https://res.cloudinary.com/dubllr2vg/image/upload/v1779738245/meta_ai_wzdwbu.jpg" width="120" height="120">
 
 <img src="https://res.cloudinary.com/dubllr2vg/image/upload/v1779737838/dola_ia_ekr0ah.jpg" width="120">
 
