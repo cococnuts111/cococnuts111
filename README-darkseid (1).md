@@ -1,6 +1,8 @@
 <div align="center">
-<img src=https://res.cloudinary.com/dubllr2vg/image/upload/v1779737569/claude-ai_hwf2ku.svg />
-  
+<img src="https://res.cloudinary.com/dubllr2vg/image/upload/v1779737569/claude-ai_hwf2ku.svg" width="120">
+
+<img src="https://res.cloudinary.com/dubllr2vg/image/upload/v1779737838/dola_ia_ekr0ah.jpg" width="120">
+
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0a0608,50:1a0a08,100:3a1a10&height=200&section=header&text=JOSUÉ%20ENRIQUE&fontSize=55&fontColor=e8c4a0&fontAlignY=38&desc=Estudiante%20de%20Desarrollo%20de%20Software%20•%20El%20Salvador%20🇸🇻&descSize=15&descAlignY=60&descColor=7a3a20&animation=fadeIn" width="100%"/>
 
 </div>
